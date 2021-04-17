@@ -18,7 +18,7 @@ function login(email, password) {
         body: JSON.stringify({ email, password })
     };
 
-    return fetch(`http://3.17.157.83:4200/api/users/login`, requestOptions)
+    return fetch(`${config.apiUrl}/users/login`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -39,7 +39,7 @@ function getAll() {
         headers: authHeader()
     };
 
-    return fetch(`http://3.17.157.83:4200/api/users/profile`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/users/profile`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {
@@ -58,7 +58,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`http://3.17.157.83:4200/api/users`, requestOptions).then(handleResponse);
+    return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
